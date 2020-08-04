@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <meta name="description" content="Learning vue">
+        <title>Vue App</title>
+    </head>
+    <body>
+    <div class="container">
+        <div id="app">
+            <h2 :class="toogleFunc()">{{ message }}</h2>
+            <h3>{{ inputText }}</h3>
+            <div class="form-group">
+
+                <div v-if="msgShow === 'primary'">
+                    <div class="alert alert-primary">{{msgPrimary}}</div>
+                </div>
+                <div v-if="msgShow === 'success'">
+                    <div class="alert alert-success">{{msgSuccess}}</div>
+                </div>
+                <div v-if="msgShow === 'danger'">
+                    <div class="alert alert-danger">{{msgDanger}}</div>
+                </div>
+
+                <input v-model="inputText" type="text" class="form-control" id="text">
+            </div>
+        </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    msgPrimary:'Заполнить поля',
+                    msgSuccess:'Успешно',
+                    msgDanger:'Ошибка',
+                    msgShow:'primary',
+                    message: 'Обучение Vue!',
+                    toogleClass: true,
+                    inputText: 'Ввдите текст'
+                },
+                methods:{
+                    toogleFunc(){
+                        return {
+                            'text-primary': this.toogleClass
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
