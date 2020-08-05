@@ -26,6 +26,16 @@
 
                 <input v-model="inputText" type="text" class="form-control" id="text">
             </div>
+
+            <div class="mt-4">
+                <ul>
+                    <!--
+                    <li v-for='(city, i) in cities' :key='i'>{{i+1}} {{ city }}</li>
+                    -->
+                    <li v-for='city in citObj' :key='city.id'>{{city.id}} {{ city.name }} {{ city.pop }}</li>
+                </ul>
+            </div>
+    
         </div>
     </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -39,7 +49,42 @@
                     msgShow:'primary',
                     message: 'Обучение Vue!',
                     toogleClass: true,
-                    inputText: 'Ввдите текст'
+                    inputText: 'Введите текст',
+                    /*Массив*/
+                    cities: ['Питер', 'Москва', 'Челяба', 'Екатька', 'Сочи', 'Самара'],
+                    /*Объект*/
+                    citObj:[
+                        {
+                            id:1,
+                            name: 'Питер',
+                            pop: '70000000'
+                        },
+                        {
+                            id:2,
+                            name: 'Москва',
+                            pop: '270000000'
+                        },
+                        {
+                            id:3,
+                            name: 'Челяба',
+                            pop: '10000000'
+                        },
+                        {
+                            id:4,
+                            name: 'Екатька',
+                            pop: '30000000'
+                        },
+                        {
+                            id:5,
+                            name: 'Сочи',
+                            pop: '20000000'
+                        },
+                        {
+                            id:6,
+                            name: 'Самара',
+                            pop: '5000000'
+                        }
+                    ]
                 },
                 methods:{
                     toogleFunc(){
